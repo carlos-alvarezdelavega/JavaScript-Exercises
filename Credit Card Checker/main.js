@@ -26,34 +26,41 @@ const batchTest = [valid1, valid2, invalid1, invalid2, mystery1];
 
 // Add your functions below:
 
+// convertToArray takes a string of numbers as an argument. This function returns an array of numbers.
+const convertToArray = string => {
+   let arrayOfNumbers = string.split('');
+    return arrayOfNumbers.map(x => Number(x));
+}; // End convert to Array
+
+console.log(convertToArray('123442134332244'))
+
 // validateCred() takes an array of numbers as a parameter and returns a boolean. The function checks if the cards are valid (returns true) or invalid (returns false)
-const validateCred = array => {
+function validateCred(array) {
     // console.log(array);
-    let value = array.join('');
+    let value = array.join('')
     // console.log(value);
     // Accept only digits, dashes or spaces
-    if (/[^0-9-\s]+/.test(value)) {return false};
-      
-    let nCheck = 0;
-    let bEven = false;
+    if (/[^0-9-\s]+/.test(value)) { return false} ;
 
-    value = value.replace(/\D/g, "");
-    
+    let nCheck = 0
+    let bEven = false
+
+    value = value.replace(/\D/g, "")
+
     // Reverse loop
     for (let i = value.length - 1; i >= 0; i--) {
-        let cDigit = value.charAt(i),
-                    nDigit = parseInt(cDigit, 10);
+        let cDigit = value.charAt(i), nDigit = parseInt(cDigit, 10)
 
-        if (bEven && (nDigit *= 2) > 9) {nDigit -= 9};
+        if (bEven && (nDigit *= 2) > 9) { nDigit -= 9} ;
         // console.log('cDigit is equal to: ' + cDigit);
         // console.log('nDigit is equal to: ' + nDigit);
-        nCheck += nDigit;
+        nCheck += nDigit
         bEven = !bEven
-    }; // End reverse loop
-    
-    return (nCheck % 10) === 0;
+    } // End reverse loop
 
-}; // End validateCred()
+    return (nCheck % 10) === 0
+
+} // End validateCred()
 
 // console.log(validateCred(mystery1));
 
@@ -99,4 +106,4 @@ const idInvalidCardCompanies = batch => {
     });
 }; // End idInvalidCardCompanies()
 
-console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+// console.log(idInvalidCardCompanies(findInvalidCards(batch)));
