@@ -107,3 +107,5 @@ const idInvalidCardCompanies = batch => {
 }; // End idInvalidCardCompanies()
 
 // console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+
+// TO-DO Create a function that will convert invalid numbers into valid numbers.
