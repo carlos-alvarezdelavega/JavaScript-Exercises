@@ -1,2 +1,2 @@
 # JavaScript-Exercises
- Codecademy JavasScript Practice Projects
+*JavasScript Practice Projects*
