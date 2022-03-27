@@ -97,167 +97,35 @@ const pAequorFactory = (number, bases) => {
         return false;
       }
     }, // End willLikelySurvive()
+
+    /* Complement Strand Method */
+    complementStrand() {
+      let originalStrand = this.dna;
+      let complementStrand = [];
+      for(let i in originalStrand) {
+        //console.log(i + strand1[i]);
+        switch(originalStrand[i]) {
+          case 'T':
+            complementStrand.push('A');
+            break;
+          case 'A':
+            complementStrand.push('T')
+            break;
+          case 'C':
+            complementStrand.push('G')
+            break;
+          case 'G':
+            complementStrand.push('C')
+            break;
+          default:
+            console.log('Base does not match the DNA.');
+            break;
+        } // End Switch statement
+      }; // end for loop;
+      return complementStrand;
+    }, // end complementStrand()
   }; // End object
 }; // End factory function
-
-const sampleOrganism1 = {
-  specimenNum: 1,
-  dna: [
-    "C",
-    "C",
-    "T",
-    "T",
-    "G",
-    "G",
-    "A",
-    "A",
-    "A",
-    "G",
-    "A",
-    "C",
-    "G",
-    "G",
-    "T",
-  ],
-  // ==== mutate() ===
-  mutate() {
-    let randomBaseInstance = Math.floor(Math.random() * this.dna.length); // Returns a number
-    let newBase = returnRandBase();
-    // The while loop calls returnRandBase() as long as it is no longer equal to this.dna[randomBaseInstance]
-    while (this.dna[randomBaseInstance] === newBase) {
-      newBase = returnRandBase();
-    }
-    this.dna[randomBaseInstance] = newBase; // Replaces this.dna[randomBaseInstance] with newBase (which thanks to the while loop will never be equal)
-    return this.dna;
-  }, // End mutate() method
-  // ===== compareDNA() =====
-
-  compareDNA(organism) {
-    let thisDNA = this.dna;
-    let organismDNA = organism.dna;
-    let identicalBases = 0;
-    for (let i = 0; i < thisDNA.length; i++) {
-      for (let j = 0; j < organismDNA.length; j++) {
-        if (thisDNA[i] === organismDNA[j] && i === j) {
-          identicalBases++;
-        }
-      } // end inner for loop
-    } // end outter for loop */
-    let percentage = ((100 * identicalBases) / thisDNA.length).toFixed();
-    console.log(
-      "Specimen" +
-      this.specimenNum +
-      " and Specimen" +
-      organism.specimenNum +
-      " have " +
-      percentage +
-      "% DNA in common."
-    );
-  }, // End compareDNA() method
-
-  /* ===== willLikelySurvive() ====== */
-  willLikelySurvive() {
-    let countSurvivalBases = 0;
-    for (let i in this.dna) {
-      if (this.dna[i] === "C") {
-        countSurvivalBases++;
-      } else if (this.dna[i] === "G") {
-        countSurvivalBases++;
-      } // End if statement
-    } // End for...of loop
-    let percentage = ((100 * countSurvivalBases) / this.dna.length).toFixed();
-    if (percentage >= 60) {
-      return true;
-    } else {
-      return false;
-    }
-  }, // End willLikelySurvive()
-}; // End sampleOrganism1
-
-// console.log(sampleOrganism1.mutate());
-
-const sampleOrganism2 = {
-  specimenNum: 2,
-  dna: [
-    "C",
-    "A",
-    "C",
-    "C",
-    "C",
-    "A",
-    "A",
-    "A",
-    "A",
-    "T",
-    "G",
-    "G",
-    "G",
-    "G",
-    "G",
-  ],
-  // ===== mutate() =====
-  mutate() {
-    let randomBaseInstance = Math.floor(Math.random() * this.dna.length); // Returns a number
-    let newBase = returnRandBase();
-    // The while loop calls returnRandBase() as long as it is no longer equal to this.dna[randomBaseInstance]
-    while (this.dna[randomBaseInstance] === newBase) {
-      newBase = returnRandBase();
-    }
-    this.dna[randomBaseInstance] = newBase; // Replaces this.dna[randomBaseInstance] with newBase (which thanks to the while loop will never be equal)
-    return this.dna;
-  }, // End mutate() method
-  // ===== compareDNA() =====
-
-  compareDNA(organism) {
-    let thisDNA = this.dna;
-    let organismDNA = organism.dna;
-    let identicalBases = 0;
-    for (let i = 0; i < thisDNA.length; i++) {
-      for (let j = 0; j < organismDNA.length; j++) {
-        if (thisDNA[i] === organismDNA[j] && i === j) {
-          identicalBases++;
-        }
-      } // end inner for loop
-    } // end outter for loop */
-    let percentage = ((100 * identicalBases) / thisDNA.length).toFixed();
-    console.log(
-      "Specimen" +
-      this.specimenNum +
-      " and Specimen" +
-      organism.specimenNum +
-      " have " +
-      percentage +
-      "% DNA in common."
-    );
-  }, // End compareDNA() method
-
-  /* ===== willLikelySurvive() ====== */
-  willLikelySurvive() {
-    let countSurvivalBases = 0;
-    for (let i in this.dna) {
-      if (this.dna[i] === "C") {
-        countSurvivalBases++;
-      } else if (this.dna[i] === "G") {
-        countSurvivalBases++;
-      } // End if statement
-    } // End for...of loop
-    let percentage = ((100 * countSurvivalBases) / this.dna.length).toFixed();
-    if (percentage >= 60) {
-      return true;
-    } else {
-      return false;
-    }
-  }, // End willLikelySurvive()
-}; // End sampleOrganism2
-
-/* const improveSurvivalChances = (array) => {
-
-}; // End improveSurvivalChances() */
-
-//console.log(mockUpStrand());
-// console.log(sampleOrganism2.willLikelySurvive());
-//console.log(sampleOrganism2.dna);
-//console.log(sampleOrganism2.compareDNA(sampleOrganism1));
 
 let pAequorOrganisms = [];
 
@@ -274,4 +142,7 @@ while (pAequorOrganisms.length < 30) {
   specimenNum++
 }; // End while loop */
 
-console.log(pAequorOrganisms)
+
+
+console.log(pAequorOrganisms[0].dna);
+console.log(pAequorOrganisms[0].complementStrand());
