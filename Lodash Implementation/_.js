@@ -9,9 +9,31 @@ const _ = {
             return num;
         }
     }, // End clamp()
+    inRange(number, start, end) {
+        if (end === undefined) {
+            end = start
+            start = 0
+        }
+    
+        if (start > end) {
+            let temp = start // this temporary value holds the original value of start
+            start = end // start´s original value becomes end
+            end = temp // end becomes the temporary value
+        }
+
+        if (number < start) {
+            return false
+        } else if (number >= end) {
+            return false
+        } else {
+            return true
+        }
+
+    }, // End inRange()
+
 }; // End Lodash Object
 
-console.log(_.clamp(5,6,8))
+console.log(_.inRange(1,1,3));
 
 
 // Do not write or modify code below this line.
