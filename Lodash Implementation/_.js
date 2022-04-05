@@ -30,10 +30,18 @@ const _ = {
         }
 
     }, // End inRange()
+    words(string){
+        if(typeof string != 'string') {
+            return "The argument is not a string." // Checks that the argument is a string. 
+        } else {
+            return string.split(" ");
+        }
 
+        
+    }, // End words()
 }; // End Lodash Object
 
-console.log(_.inRange(1,1,3));
+console.log(_.words('Fred is queer.'));
 
 
 // Do not write or modify code below this line.
