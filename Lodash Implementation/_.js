@@ -36,12 +36,34 @@ const _ = {
         } else {
             return string.split(" ");
         }
-
-        
     }, // End words()
+    pad(string, length){
+        let stringLength = string.length;
+        //console.log(`The string's length is ${stringLength}`)
+        //console.log(`The desired length is ${length}`)
+        if (stringLength >= length){
+            return string;
+        } // Checks the string length
+
+        // let difference = Math.floor(length - stringLength);
+        //console.log(`The difference between the two values is ${difference}`)
+
+        /* if (difference % 2 === 0 ) { // checks if the result is even
+            return 'x'.repeat(Math.floor(difference / 2)) + string + 'x'.repeat(Math.floor(difference / 2))
+        } else {
+            return string + 'x'.repeat(difference)
+        } */
+
+        let startPaddingLength = Math.floor((length - stringLength) / 2);
+        let endPaddingLength = length - stringLength - startPaddingLength;
+
+        let paddedString = 'x'.repeat(startPaddingLength) + string + 'x'.repeat(endPaddingLength);
+        return paddedString;
+
+    }, // End pad()
 }; // End Lodash Object
 
-console.log(_.words('Fred is queer.'));
+console.log(_.pad('hi',5));
 
 
 // Do not write or modify code below this line.
