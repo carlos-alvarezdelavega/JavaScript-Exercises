@@ -57,10 +57,19 @@ const _ = {
         let startPaddingLength = Math.floor((length - stringLength) / 2);
         let endPaddingLength = length - stringLength - startPaddingLength;
 
-        let paddedString = 'x'.repeat(startPaddingLength) + string + 'x'.repeat(endPaddingLength);
+        let paddedString = 'x'.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
         return paddedString;
 
     }, // End pad()
+    has(object, key) {
+        let instance = object[key]; // checks if the object has a key with the assigned value
+        if (instance === undefined) {
+            return false;
+        } else {
+            return true;
+        }
+    }, // End has()
+    
 }; // End Lodash Object
 
 console.log(_.pad('hi',5));
