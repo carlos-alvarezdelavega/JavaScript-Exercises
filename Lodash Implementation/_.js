@@ -57,7 +57,7 @@ const _ = {
         let startPaddingLength = Math.floor((length - stringLength) / 2);
         let endPaddingLength = length - stringLength - startPaddingLength;
 
-        let paddedString = 'x'.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
+        let paddedString = ''.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
         return paddedString;
 
     }, // End pad()
@@ -69,10 +69,24 @@ const _ = {
             return true;
         }
     }, // End has()
-    
+    invert(object) {
+        let newObj = {}; //Stores the new object
+        for (let key in object) {
+            newObj[object[key]] = key;
+        } // End for...in loop
+        return newObj;
+    },
+    findKey(object, predicate) {
+        for(let key in object) {
+            if (predicate(object[key])) {
+                return key;
+            } // end if statement
+        }; // End for...in loop
+        return undefined;
+    }, // End findKey()
 }; // End Lodash Object
 
-console.log(_.pad('hi',5));
+
 
 
 // Do not write or modify code below this line.
