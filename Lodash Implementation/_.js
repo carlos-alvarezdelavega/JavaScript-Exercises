@@ -95,6 +95,10 @@ const _ = {
     return dropArray;
   }, // End dropWhile()
   chunk(array, size) {
+    if (size === undefined) {
+      size = 1;
+    }; // checks if size has been provided
+    //
     let newArray = []; // Array where the 'chunks' will be stored
     //
     for(let i = 0; i < array.length; i += size){
