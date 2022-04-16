@@ -85,7 +85,29 @@ const _ = {
 
     return array.slice(number);
   }, // End drop()
+  dropWhile(array, predicate) {
+    let dropNum = array.findIndex((element,index) =>{
+      return !(predicate(element, index, array));
+    }); // End dropNum 
+    //
+    let dropArray = this.drop(array, dropNum);
+    //
+    return dropArray;
+  }, // End dropWhile()
+  chunk(array, size) {
+    let newArray = []; // Array where the 'chunks' will be stored
+    //
+    for(let i = 0; i < array.length; i += size){
+      let portion = array.slice(i, i + size) // stores a portion of the array
+      newArray.push(portion); // at each iteration pushes a new 'chunk' to the newArr variable
+    }; // end for loop
+    //
+    return newArray;
+  }, // End the chunk() method
 }; // End Lodash Object
+
+
+
 
 // Do not write or modify code below this line.
 module.exports = _;
