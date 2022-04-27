@@ -13,19 +13,40 @@ In this case, purchasing on day 1 and selling on day 4 would yield the most prof
 the function would return [1, 4].
 
 */
+// === Implementation ===
 // Test cases
 
-let stockWeek1 = [17, 11, 60, 25, 150, 75, 31, 120];
+
+const getRandomStock = () => {
+    let randomWeek = [];
+    
+    for(let i = 0; i < 7; i++) {
+        let randomNum = Math.floor(Math.random() * 100);
+        randomWeek.push(randomNum)
+    } // end loop
+    return randomWeek;
+} // End getRandomStock
+
+let randomStockWeek = [92, 76, 90, 64, 27, 85, 1];
 
 function maxProfitDays(stockPrices) {
     let firstDay = stockPrices[0];
     let maxProfit = [];
-    for(let i in stockPrices){
+    
+    /*for(let i in stockPrices){
         if(stockPrices[i] < firstDay){
-            maxProfit.push(stockPrices[i])
+            maxProfit.push(i)
         }// end if statement
-    };// End for...in loop
+        
+    }; End for...in loop */
+    let cheapestStock = Math.min(...stockPrices)
+    //
+    let timeToSell = Math.max(...stockPrices);
+    //console.log(timeToSell);
+    maxProfit.push(stockPrices.indexOf(cheapestStock))
+    maxProfit.push(stockPrices.indexOf(timeToSell))
     return maxProfit;
 }
 
-console.log(maxProfitDays(stockWeek1));
+console.log(randomStockWeek);
+console.log(maxProfitDays(randomStockWeek));
