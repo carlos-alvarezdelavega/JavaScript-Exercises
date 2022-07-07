@@ -98,3 +98,12 @@ const alSmith = new HighSchool("Al E. Smith", 415, [
 ]);
 
 console.log(alSmith.sportsTeams);
+
+/* Next Steps 
+If you would like to continue working on this project, we have listed some avenues to build on your progress.
+
+Create a middle school class
+Add more properties to each class (averageTestScores, schoolOverview, etc.)
+Create a class called SchoolCatalog that holds a collection of schools. Create an instance of SchoolCatalog for primary, middle, and high schools.
+
+*/
