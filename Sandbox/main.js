@@ -1,4 +1,4 @@
-// Global variables
+/* Thesis Words
 
 // let chapter1 = 0;
 // let chapter2 = 0;
@@ -12,4 +12,17 @@ const sumWords = () => {
     return chapter5 + chapter6 + chapter7
 };
 
-console.log(sumWords())
+console.log(sumWords()) */
+
+function removeParentheses(s){
+  console.log(s.split());
+  let stringArray = s.split();
+  
+  let startRemove = s.indexOf('(');
+  let endRemove = s.indexOf(')');
+  
+}
+
+//console.log(removeParentheses("example(unwanted thing)example"))
+
+console.log('Hello World!');

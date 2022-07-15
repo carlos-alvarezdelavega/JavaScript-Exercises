@@ -48,5 +48,22 @@ function maxProfitDays(stockPrices) {
     return maxProfit;
 }
 
-console.log(randomStockWeek);
-console.log(maxProfitDays(randomStockWeek));
+
+const calculateProfit = (stockPrices) => {
+    let profit = 0;
+    let maxProfit = [];
+    let cheapestStock = Math.min(...stockPrices)
+    //
+    let timeToSell = Math.max(...stockPrices);
+    //console.log(timeToSell);
+    maxProfit.push(stockPrices.indexOf(cheapestStock))
+    maxProfit.push(stockPrices.indexOf(timeToSell))
+    
+    if (maxProfit[0] < maxProfit[1]) {
+        profit = timeToSell - cheapestStock;
+    }
+    
+    return maxProfit;
+} // End calculateProfit
+
+console.log(calculateProfit(randomStockWeek));
